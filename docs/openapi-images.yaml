@@ -1,0 +1,47 @@
+openapi: "3.0.2"
+info:
+  title: Images API
+  description: Image API for getting images
+  version: "0.0.1"
+  contact:
+    email: nur@nurenur.eu
+servers:
+  - url: https://localhost:4000
+tags:
+  - name: images
+paths:
+  /images:
+    get:
+      tags:
+        - images
+      operationId: getImages
+      summary: Get images
+      description: Get all images available
+      responses:
+        '200':
+          description: Get images
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+
+components:
+  schemas:
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: "Hamster meme"
+        description:
+          type: string
+          example: "A picture of a hamster doing the peace sign"
+        tags:
+          type: array
+          example: ["cute", "meme", "hamster"]
+        date:
+          type: string
+          example: 2024-01-30
