@@ -26,15 +26,22 @@ erDiagram
     }
     MUSIC ||--o{ IMAGE : has
     MUSIC ||--o{ SOURCE : available_at
+    MUSIC }o--o{ VOCALIST : sung_by
     MUSIC {
         string title
         int seconds
         string firstDate
         string latestDate
         string DAW
+        string lyrcs
     }
     SOURCE {
         string URL
         string host
+    }
+    VOCALIST {
+        string name
+        string engine
+        string URL
     }
 ````
