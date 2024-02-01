@@ -31,6 +31,4 @@ public class ImageController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Image not found");
         return this.imageRepo.findOne(id);
     }
-
-
 }

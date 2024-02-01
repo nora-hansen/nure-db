@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS ImageSource(
+    ID SERIAL PRIMARY KEY,
+    imageID SERIAL,
+    sourceID SERIAL,
+    FOREIGN KEY (imageID) REFERENCES Image(ID),
+    FOREIGN KEY (sourceID) REFERENCES Source(ID)
+);

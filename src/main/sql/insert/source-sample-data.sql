@@ -1,0 +1,6 @@
+INSERT INTO Source
+    (sourceName, isPublic, Link)
+VALUES
+    ('Hampter image1', true, 'https://thumbor.bigedition.com/funny-hamster-meme/3BmvvGYAMRhlfJli-4XHOUpDUyM=/717x0/filters:quality(80)/granite-web-prod/d2/81/d281bda09fd14ec09e7ce3b6aad87d5f.jpeg'),
+    ('Hampter pray', true, 'https://wallpapers.com/images/hd/praying-hamster-meme-1tutr4fxoex654dw.jpg'),
+    ('Best song', true, 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b3354be1-7362-451f-aaec-04651c7ba3a6/dcyl6xy-44381811-6740-4d09-b8e1-33ca8e5ae6b4.png/v1/fill/w_400,h_240,q_80,strp/hamster_meme_by_mudtastic_dcyl6xy-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjQwIiwicGF0aCI6IlwvZlwvYjMzNTRiZTEtNzM2Mi00NTFmLWFhZWMtMDQ2NTFjN2JhM2E2XC9kY3lsNnh5LTQ0MzgxODExLTY3NDAtNGQwOS1iOGUxLTMzY2E4ZTVhZTZiNC5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.YthYn-40yXCUS-Vdcy3VEECw4Dvtsj9c8j3GvDJcjQE');

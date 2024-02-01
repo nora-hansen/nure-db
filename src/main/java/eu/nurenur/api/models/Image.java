@@ -1,6 +1,14 @@
 package eu.nurenur.api.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import java.util.ArrayList;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 public class Image {
     // REIMPLEMENT BETTER!!

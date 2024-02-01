@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS MusicSource(
+    ID SERIAL PRIMARY KEY,
+    musicID SERIAL,
+    sourceID SERIAL,
+    FOREIGN KEY (musicID) REFERENCES Music(ID),
+    FOREIGN KEY (sourceID) REFERENCES Source(ID)
+);

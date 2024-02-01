@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS Source(
+    ID SERIAL PRIMARY KEY,
+    sourceName TEXT,
+    isPublic BOOLEAN,
+    Link TEXT NOT NULL
+)
