@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS Vocalist(
+    ID SERIAL PRIMARY KEY,
+    Name TEXT,
+    Engine TEXT,
+    URL TEXT
+);
