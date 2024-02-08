@@ -22,12 +22,13 @@ erDiagram
     MUSIC {
         string title
         int seconds
-        string firstDate
-        string latestDate
+        Date firstDate
+        Date latestDate
         string DAW
         string description
         string lyrics
         string isrc
+        bool isRemake
     }
     MUSIC }o--o{ RELEASE : is_in
     RELEASE ||--o{ SOURCE : available_at
