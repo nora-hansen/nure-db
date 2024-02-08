@@ -4,6 +4,7 @@ ER diagram test
 ---
 erDiagram
     SOURCE {
+        string name
         string URL
         string host
         bool isPublic
@@ -68,6 +69,14 @@ erDiagram
         string description
         string date
         string software
+    }
+    VIDEO {
+        string title
+        string description
+        
+    }
+    FILE {
+        
     }
 
 

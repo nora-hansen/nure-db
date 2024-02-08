@@ -10,4 +10,5 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "voice_banks")
 public class VoiceBank {
+
 }

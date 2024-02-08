@@ -16,6 +16,9 @@ public class Source {
     private int id;
 
     @Column
+    private String name;
+
+    @Column
     private String URL;
 
     @Column
@@ -25,11 +28,13 @@ public class Source {
     private boolean isPublic;
 
     public Source(
+            String name,
             String URL,
             String host,
             boolean isPublic
             )
     {
+        this.name     = name;
         this.URL      = URL;
         this.host     = host;
         this.isPublic = isPublic;
