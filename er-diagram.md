@@ -67,7 +67,7 @@ erDiagram
     ARTWORK {
         string title
         string description
-        string date
+        date date
         string software
     }
     VIDEO ||--o{ SOURCE : available_at

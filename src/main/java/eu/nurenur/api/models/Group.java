@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -20,6 +22,9 @@ public class Group {
 
     @Column
     private String description;
+
+    @OneToMany(mappedBy = "group")
+    private List<Character> members;
 
     public Group(String name, String description)   {
         this.name = name;

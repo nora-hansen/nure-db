@@ -30,11 +30,20 @@ public class Character {
     @Column
     private String bio;
 
-    @OneToMany(mappedBy = "group")
-    private Group groups;
-
     @Column
     private boolean isOC;
+
+    /*
+        RELATIONSHIPS
+     */
+    @ManyToMany(mappedBy = "characters")
+    private List<Artwork> artworks;
+
+
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group groups;
+
 
 
     /*
