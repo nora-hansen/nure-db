@@ -7,13 +7,17 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 /*
     TODO
         - Models
-            Group
-            Image
-            Character
+            File
+            Video
         - Repository
             All
         - Controller
             All
+        - README
+        - Database
+            TO COME
+        - Frontend
+            TO COME
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class Main {
