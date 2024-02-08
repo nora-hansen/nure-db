@@ -16,4 +16,7 @@ public class Profile {
 
     @Column
     private String name;
+
+    @OneToOne
+    private Source iconImage;
 }

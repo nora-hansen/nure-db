@@ -15,7 +15,7 @@ erDiagram
     TAG {
         string value
     }
-    MUSIC ||--o{ IMAGE : has
+    MUSIC ||--o{ ARTWORK : has
     MUSIC |o--o{ TAG : tagged_with
     MUSIC ||--o{ SOURCE : available_at
     MUSIC }o--o{ VOCALIST : sung_by
@@ -61,22 +61,26 @@ erDiagram
         string name
         string description
     }
-    IMAGE ||--o{ CHARACTER : contains
-    IMAGE ||--o{ TAG : tagged_with
-    IMAGE ||--o{ SOURCE : available_at
-    IMAGE {
+    ARTWORK ||--o{ CHARACTER : contains
+    ARTWORK ||--o{ TAG : tagged_with
+    ARTWORK ||--o{ SOURCE : available_at
+    ARTWORK {
         string title
         string description
         string date
         string software
     }
+    VIDEO ||--o{ SOURCE : available_at
+    VIDEO ||--o{ CHARACTER : contains
     VIDEO {
         string title
-        string description
-        
+        string description 
+        int seconds
     }
+    FILE ||--o{ SOURCE : available_at
     FILE {
-        
+        string title
+        string type
     }
 
 

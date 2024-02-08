@@ -24,6 +24,9 @@ public class Release {
     @OneToMany(mappedBy = "source")
     private List<Source> availableAt;
 
+    @OneToOne(mappedBy = "artwork")
+    private Artwork cover;
+
     public Release(
             String title,
             Date date,
