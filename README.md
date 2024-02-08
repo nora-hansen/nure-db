@@ -2,6 +2,9 @@
 This is a Web API and database project I am developing to sharpen my skills. And for fun!
 *WORK IN PROGRESS*
 
+Visit the wiki for details
+https://github.com/nora-hansen/nure-db/wiki
+
 ## About
 Spring Boot Java backend. Database? Haven't decided yet. Frontend? Probably React.
 
