@@ -30,12 +30,17 @@ public class Character {
     @Column
     private String bio;
 
-    @Column
-    private String group;
+    @OneToMany(mappedBy = "group")
+    private Group groups;
 
     @Column
     private boolean isOC;
 
+
+    /*
+        TODO
+            Include Artwork when made
+     */
     @OneToOne(mappedBy = "artwork")
     private Artwork iconImage;
 
