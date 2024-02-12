@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 /*
     TODO
         - Add rest of fields
@@ -24,6 +26,12 @@ public class VoiceBank {
 
     @Column
     private String engine;
+
+    @Column
+    private Date createdAt;
+
+    @Column
+    private Date updatedAt;
 
     public VoiceBank(String name, String engine) {
         this.name = name;

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -23,6 +25,12 @@ public class Vocalist {
 
     @Column
     private String URL;
+
+    @Column
+    private Date createdAt;
+
+    @Column
+    private Date updatedAt;
 
     public Vocalist(
             String name,

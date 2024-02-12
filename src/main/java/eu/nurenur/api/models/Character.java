@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor
@@ -18,41 +21,48 @@ public class Character {
     private int id;
 
     @Column
-    private String name;
-
-    /*
-        TODO
-            Calculate age from birthday?
-     */
-    @Column
-    private int age;
+    private String name;    // Name of character
 
     @Column
-    private String bio;
+    private int age;    // Their age
 
     @Column
-    private boolean isOC;
+    private String bio; // A bio / description
+
+    @Column
+    private boolean isOC;   // Is this an OC?
 
     /*
         RELATIONSHIPS
      */
     @ManyToMany(mappedBy = "characters")
-    private List<Artwork> artworks;
+    @JoinTable(
+            name = "Artwork_Character",
+            joinColumns = { @JoinColumn(name = "artwork_id")},
+            inverseJoinColumns = { @JoinColumn(name = "character_id")}
+    )
+    private List<Artwork> artworks; // Artworks of the characters
 
 
     @ManyToOne
     @JoinColumn(name = "group_id")
-    private Group groups;
+    private Group group;   // Group character is part of
 
-
-
-    /*
-        TODO
-            Include Artwork when made
-     */
     @OneToOne(mappedBy = "artwork")
-    private Artwork iconImage;
+    private Artwork iconImage;  // Icon image of character
 
-    @OneToMany(mappedBy = "artwork")
-    private List<Artwork> images;
+    @CreationTimestamp
+    private LocalDateTime createdAt;    // When was entry created
+    @PrePersist
+    protected void onCreate() {
+        this.updatedAt = this.createdAt = LocalDateTime.now();
+    }
+    @UpdateTimestamp
+    private  LocalDateTime updatedAt;   // When was entry last updated
+    @PreUpdate
+    protected void onUpdate()   {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+
 }

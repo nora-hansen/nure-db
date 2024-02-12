@@ -8,12 +8,18 @@ erDiagram
         string URL
         string host
         bool isPublic
+        date createdAt
+        date updatedAt
     }
     PROFILE {
         string name
+        date createdAt
+        date updatedAt
     }
     TAG {
         string value
+        date createdAt
+        date updatedAt
     }
     MUSIC ||--o{ ARTWORK : has
     MUSIC |o--o{ TAG : tagged_with
@@ -30,23 +36,31 @@ erDiagram
         string lyrics
         string isrc
         bool isRemake
+        date createdAt
+        date updatedAt
     }
     MUSIC }o--o{ RELEASE : is_in
     RELEASE ||--o{ SOURCE : available_at
     RELEASE {
         string title
         string date
+        date createdAt
+        date updatedAt
     }
     VOCALIST {
         string name
         string engine
         string URL
+        date createdAt
+        date updatedAt
     }
     VOICE_BANK ||--o{ SOURCE : available_at
     VOICE_BANK ||--|| PROFILE : voiced_by
     VOICE_BANK {
         string name
         string engine
+        date createdAt
+        date updatedAt
     }
     CHARACTER ||--o{ GROUP : is_in
     CHARACTER }o--|| CHARACTER : based_on
@@ -56,10 +70,14 @@ erDiagram
         string bio
         string group
         bool isOC
+        date createdAt
+        date updatedAt
     }
     GROUP {
         string name
         string description
+        date createdAt
+        date updatedAt
     }
     ARTWORK ||--o{ CHARACTER : contains
     ARTWORK ||--o{ TAG : tagged_with
@@ -69,6 +87,8 @@ erDiagram
         string description
         date date
         string software
+        date createdAt
+        date updatedAt
     }
     VIDEO ||--o{ SOURCE : available_at
     VIDEO ||--o{ CHARACTER : contains
@@ -76,11 +96,15 @@ erDiagram
         string title
         string description 
         int seconds
+        date createdAt
+        date updatedAt
     }
     FILE ||--o{ SOURCE : available_at
     FILE {
         string title
         string type
+        date createdAt
+        date updatedAt
     }
 
 

@@ -2,6 +2,8 @@ package eu.nurenur.api.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 /*
     TODO
         - More fields?
@@ -19,4 +21,10 @@ public class Profile {
 
     @OneToOne
     private Source iconImage;
+
+    @Column
+    private Date createdAt;
+
+    @Column
+    private Date updatedAt;
 }

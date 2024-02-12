@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -22,6 +23,12 @@ public class Tag {
 
     @ManyToMany(mappedBy = "tags")
     private List<Artwork> artworks;
+
+    @Column
+    private Date createdAt;
+
+    @Column
+    private Date updatedAt;
 
     public Tag(String value)
     {

@@ -27,6 +27,12 @@ public class Release {
     @OneToOne(mappedBy = "artwork")
     private Artwork cover;
 
+    @Column
+    private Date createdAt;
+
+    @Column
+    private Date updatedAt;
+
     public Release(
             String title,
             Date date,
