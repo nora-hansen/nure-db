@@ -8,7 +8,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -21,7 +20,7 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(nullable = false)
     private String name;    // Name of group
 
     @Column

@@ -1,8 +1,11 @@
 package eu.nurenur.api.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /*
     TODO
@@ -16,15 +19,48 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
-    private String name;
+    @Column(nullable = false)
+    private final String name;    // Name of profile/person
 
     @OneToOne
-    private Source iconImage;
+    private Source iconImage;   // Image
 
-    @Column
-    private Date createdAt;
+    @CreationTimestamp
+    private LocalDateTime createdAt;    // When was entry created
+    @PrePersist
+    protected void onCreate() {
+        this.updatedAt = this.createdAt = LocalDateTime.now();
+    }
+    @UpdateTimestamp
+    private  LocalDateTime updatedAt;   // When was entry last updated
+    @PreUpdate
+    protected void onUpdate()   {
+        this.updatedAt = LocalDateTime.now();
+    }
+    @OneToMany(mappedBy = "profile")
+    private List<VoiceBank> voicebanks; // Voicebanks voiced by profile
 
-    @Column
-    private Date updatedAt;
+    public Profile(
+        String name,
+        Source iconImage
+    )   {
+        this.name = name;
+        this.iconImage = iconImage;
+    }
+
+    public Profile(
+            String name
+    )   {
+        this.name = name;
+    }
+
+    public Profile(
+            String name,
+            Source iconImage,
+            List<VoiceBank> voicebanks
+    )   {
+        this.name = name;
+        this.iconImage  = iconImage;
+        this.voicebanks = voicebanks;
+    }
 }

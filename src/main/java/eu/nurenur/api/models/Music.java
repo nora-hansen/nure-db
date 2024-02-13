@@ -1,6 +1,5 @@
 package eu.nurenur.api.models;
 
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +21,7 @@ public class Music {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(nullable = false)
     private String title;   // Title of song
 
     @Column
@@ -47,19 +46,34 @@ public class Music {
     private String isrc;    // Uh
 
     @ManyToOne
-    @JoinColumn(name = "original_song_id", nullable = true)
+    @JoinColumn(name = "original_song_id")
     private Music originalSong; // IF a remix/remake/remaster, link to original version
 
     @Column
     private boolean isRemake;   // Bool if remake/remaster/remix
 
     @ManyToMany(mappedBy = "main_vocalist")
+    @JoinTable (
+            name = "Music_Main_Vocalist",
+            joinColumns = { @JoinColumn(name = "music_id") },
+            inverseJoinColumns = { @JoinColumn(name = "vocalist_id") }
+    )
     private List<Vocalist> mainVocalists;   // Main vocalists present
 
     @ManyToMany(mappedBy = "back_vocalist")
+    @JoinTable(
+            name = "Music_Back_Vocalist",
+            joinColumns = { @JoinColumn(name = "music_id") },
+            inverseJoinColumns = { @JoinColumn(name = "vocalist_id") }
+    )
     private List<Vocalist> backingVocalists;    // Backers present
 
     @ManyToMany(mappedBy = "sfx_vocalist")
+    @JoinTable(
+            name = "Music_Sfx_Vocalist",
+            joinColumns = { @JoinColumn(name = "music_id") },
+            inverseJoinColumns = { @JoinColumn(name = "vocalist_id") }
+    )
     private List<Vocalist> sfxVocalists;    // Vocalists only providing sound effects
 
     @OneToMany(mappedBy = "available_at")
@@ -128,6 +142,6 @@ public class Music {
         this.mainVocalists = mainVocalists;
         this.backingVocalists = backingVocalists;
         this.sfxVocalists = sfxVocalists;
-        this.availableAt = availableAt;
+        this.availableAt  = availableAt;
     }
 }

@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor
@@ -19,26 +21,41 @@ public class Source {
     private int id;
 
     @Column
-    private String name;
+    private String name;    // Idk what I meant by this
+
+    @Column(nullable = false)
+    private String URL; // Link to source (if local, filepath)
 
     @Column
-    private String URL;
+    private String host;    // Name of the host (e.g. YouTube, OneDrive, Local...)
 
     @Column
-    private String host;
-
-    @Column
-    private boolean isPublic;
+    private boolean isPublic;   // Is it publically available (if not, authentication needed to access)
 
     @ManyToOne
     @JoinColumn(name = "artwork_id")
-    private List<Artwork> artworks;
+    private List<Artwork> artworks; // Artworksss
 
-    @Column
-    private Date createdAt;
+    @ManyToOne
+    @JoinColumn(name = "music_id")
+    private List<Music> music;  // Musicccc
 
-    @Column
-    private Date updatedAt;
+    @ManyToOne
+    @JoinColumn(name = "release_id")
+    private List<Release> releases; // Releasesss
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;    // When was entry created
+    @PrePersist
+    protected void onCreate() {
+        this.updatedAt = this.createdAt = LocalDateTime.now();
+    }
+    @UpdateTimestamp
+    private  LocalDateTime updatedAt;   // When was entry last updated
+    @PreUpdate
+    protected void onUpdate()   {
+        this.updatedAt = LocalDateTime.now();
+    }
 
     public Source(
             String name,

@@ -20,7 +20,7 @@ public class Character {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(nullable = false)
     private String name;    // Name of character
 
     @Column
@@ -29,7 +29,7 @@ public class Character {
     @Column
     private String bio; // A bio / description
 
-    @Column
+    @Column(nullable = false)
     private boolean isOC;   // Is this an OC?
 
     /*
@@ -42,7 +42,6 @@ public class Character {
             inverseJoinColumns = { @JoinColumn(name = "character_id")}
     )
     private List<Artwork> artworks; // Artworks of the characters
-
 
     @ManyToOne
     @JoinColumn(name = "group_id")
@@ -64,5 +63,29 @@ public class Character {
         this.updatedAt = LocalDateTime.now();
     }
 
+    public Character(
+            String name,
+            boolean isOC
+    )   {
+        this.name = name;
+        this.isOC = isOC;
+    }
 
+    public Character(
+            String name,
+            int age,
+            String bio,
+            boolean isOC,
+            List<Artwork> artworks,
+            Group group,
+            Artwork iconImage
+    )   {
+        this.name  = name;
+        this.age   = age;
+        this.bio   = bio;
+        this.isOC  = isOC;
+        this.artworks  = artworks;
+        this.group = group;
+        this.iconImage = iconImage;
+    }
 }
